@@ -27,37 +27,6 @@ import {
 import createTheme from '../assets/theme';
 
 const imageFileNames = [
-  // react
-  'chernobyl.jpg',
-  'chernobylBlurred.jpg',
-  'react.svg',
-  'books.png',
-  'orly.png',
-  'spa.jpg',
-  'spaVsMpa.png',
-  'virtualDom.png',
-  'granularCode.png',
-  'granularDomUpdates.gif',
-  'propsState.png',
-  'propsState2.png',
-  'componentBasics1.webp',
-  'componentBasics2.webp',
-  'componentBasics3.webp',
-  'componentBasics4.webp',
-  'lifecycle.webp',
-  'lifecycleExtended.webp',
-  'reactDevTools.png',
-  'syncState.webp',
-
-  // hooks
-  'hooks.jpg',
-  'hooksBlurred.jpg',
-  'whatever.jpg',
-  'devCommunity.webp',
-  'wrapperHell.webp',
-  'reduxKiller.webp',
-  'karloff.webp',
-
   // redux
   'redDucks.jpg',
   'readAxe.jpg',
@@ -72,16 +41,50 @@ const imageFileNames = [
   'reduxDevTools.png',
   'dataFlow.gif',
   'asyncDataFlow.gif',
+  'reduxSellingPoints.png',
+  'reduxSellingPoints2.png',
+  'hooksSellingPoints.png',
+
+  // // react
+  'chernobyl.jpg',
+  'chernobylBlurred.jpg',
+  'syncState.webp',
+  // 'react.svg',
+  // 'books.png',
+  // 'orly.png',
+  // 'spa.jpg',
+  // 'spaVsMpa.png',
+  // 'virtualDom.png',
+  // 'granularCode.png',
+  // 'granularDomUpdates.gif',
+  // 'propsState.png',
+  // 'propsState2.png',
+  // 'componentBasics1.webp',
+  // 'componentBasics2.webp',
+  // 'componentBasics3.webp',
+  // 'componentBasics4.webp',
+  // 'lifecycle.webp',
+  // 'lifecycleExtended.webp',
+  // 'reactDevTools.png',
+
+  // // hooks
+  // 'hooks.jpg',
+  // 'hooksBlurred.jpg',
+  // 'whatever.jpg',
+  // 'devCommunity.webp',
+  // 'wrapperHell.webp',
+  'reduxKiller.webp',
+  // 'karloff.webp',
 
   // router
-  'routes.webp',
-  'routesBlurred.webp',
-  'routerBasics1.webp',
-  'routerBasics2.webp',
-  'routerBasics3.webp',
-  'hashRouter.png',
-  'browserRouter.png',
-  'browserRouterOnStatic.gif',
+  // 'routes.webp',
+  // 'routesBlurred.webp',
+  // 'routerBasics1.webp',
+  // 'routerBasics2.webp',
+  // 'routerBasics3.webp',
+  // 'hashRouter.png',
+  // 'browserRouter.png',
+  // 'browserRouterOnStatic.gif',
 ];
 const reqImage = name => ({ [name.split('.')[0]]: require(`../assets/${name}`) });
 const images = imageFileNames.reduce((acc, name) => ({ ...acc, ...reqImage(name) }), {});
@@ -124,6 +127,7 @@ const sourceFileNames = [
   'reduxThunkSource.js',
   'reduxSaga.js',
   'reduxSaga2.js',
+  'uiIntegration.js',
   'reactRedux.js',
   'reactRedux2.js',
   'reselect.js',
@@ -420,7 +424,28 @@ export default class Presentation extends React.Component {
               - Store getter methods				                  - Selectors */}
         </Slide>
 
-     
+        <FullScreenSlide bgColor="secondary">
+          {/* <Text caps textColor="cartoon" style={{ fontSize: '7vh', fontWeight: 'bold', margin: '5vh 0 2vh 0', textAlign: 'left' }}>
+            Redux Selling Points
+          </Text> */}
+          <Image src={images.reduxSellingPoints} />
+        </FullScreenSlide>
+
+        <FullScreenSlide bgColor="secondary">
+          <Image src={images.reduxKiller} />
+          <Corner right="2vw" bottom="2vh"><Link href="https://medium.com/javascript-scene/do-react-hooks-replace-redux-210bab340672" target="_blank" style={{ fontSize: '4vh' }}>Do React Hooks Replace Redux?</Link></Corner>
+        </FullScreenSlide>
+
+        <FullScreenSlide bgColor="secondary">
+          <Image src={images.reduxSellingPoints2} />
+          {/* <Corner right="2vw" bottom="2vh"><Link href="https://medium.com/javascript-scene/do-react-hooks-replace-redux-210bab340672" target="_blank" style={{ fontSize: '4vh' }}>Do React Hooks Replace Redux?</Link></Corner> */}
+        </FullScreenSlide>
+
+        <FullScreenSlide bgColor="secondary">
+          <Image src={images.hooksSellingPoints} />
+          {/* <Corner right="2vw" bottom="2vh"><Link href="https://medium.com/javascript-scene/do-react-hooks-replace-redux-210bab340672" target="_blank" style={{ fontSize: '4vh' }}>Do React Hooks Replace Redux?</Link></Corner> */}
+        </FullScreenSlide>
+
         <FullScreenSlide bgImage={images.colliderBlurred} padding="0 7vw">
           <Heading style={{ fontSize: '8vh', margin: 0 }}>
             One Way Data Flow
@@ -589,6 +614,22 @@ export default class Presentation extends React.Component {
         <FullScreenSlide bgImage={images.colliderBlurred} padding="0 0.5vw">
           <CodePane source={sources.reduxSaga2} style={{ maxHeight: '98vh', overflowY: 'auto' }} lang="jsx" theme="light" />
         </FullScreenSlide>
+
+        {/* End of episode 1 */}
+        <FullScreenSlide bgImage={images.chernobyl}>
+          <Corner right="7vw" bottom="10vh">
+            <Heading caps style={{ ...styles.brain, fontSize: '5.1vh' }}>To Be Continued...</Heading>
+          </Corner>
+        </FullScreenSlide>
+
+        <FullScreenSlide bgImage={images.colliderBlurred} padding="0 0.5vw">
+          <Heading style={{ fontSize: '5vh', margin: '0 0 2vh', textAlign: 'left' }}>
+            UI integration
+          </Heading>
+          <CodePane source={sources.uiIntegration} style={{ maxHeight: '98vh', overflowY: 'auto' }} lang="jsx" theme="light" />
+          <Corner right="2vw" bottom="2vh"><Link href="https://codesandbox.io/s/redux-fundamentals-core-example-lr7k1" target="_blank" style={{ fontSize: '4vh' }}>Example</Link></Corner>
+        </FullScreenSlide>
+
         <FullScreenSlide bgImage={images.colliderBlurred} padding="0 0.5vw">
           <Heading style={{ fontSize: '5vh', margin: '0 0 2vh', textAlign: 'left' }}>
             Usage with React: React Redux
@@ -606,13 +647,6 @@ export default class Presentation extends React.Component {
           </Heading>
           <CodePane source={sources.reactReduxApiHooks} style={{ maxHeight: '98vh', overflowY: 'auto' }} lang="jsx" theme="light" />
           <Corner right="2vw" bottom="2vh"><Link href="http://localhost:3001/react-redux-hooks" target="_blank" style={{ fontSize: '4vh' }}>Example</Link></Corner>
-        </FullScreenSlide>
-
-        {/* End of episode 1 */}
-        <FullScreenSlide bgImage={images.chernobyl}>
-          <Corner right="7vw" bottom="10vh">
-            <Heading caps style={{ ...styles.brain, fontSize: '5.1vh' }}>To Be Continued...</Heading>
-          </Corner>
         </FullScreenSlide>
 
 
