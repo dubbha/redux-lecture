@@ -44,6 +44,9 @@ const imageFileNames = [
   'reduxSellingPoints.png',
   'reduxSellingPoints2.png',
   'hooksSellingPoints.png',
+  'reactRedux.png',
+  'uiFunctionOfState.png',
+  'reduxToolkit.png',
 
   // // react
   'chernobyl.jpg',
@@ -130,9 +133,14 @@ const sourceFileNames = [
   'uiIntegration.js',
   'reactRedux.js',
   'reactRedux2.js',
+  'selectors.js',
   'reselect.js',
   'reselect2.js',
   'reselect3.js',
+  'reselect4.js',
+  'reduxToolkit.js',
+  'createAsyncThunk.js',
+  'reduxToolkitQuery.js',
 
   // router
   'routerInstall.js',
@@ -156,6 +164,7 @@ const sourceFileNames = [
   'routeRenderProtectedRoute.js',
   'customMatchParams.js',
   'blockedUpdates.js',
+  'hocComposition.js',
   'connectedReactRouterState.js',
   'connectedReactRouterAction.js',
   'connectedReactRouter.js',
@@ -613,6 +622,7 @@ export default class Presentation extends React.Component {
         </FullScreenSlide>
         <FullScreenSlide bgImage={images.colliderBlurred} padding="0 0.5vw">
           <CodePane source={sources.reduxSaga2} style={{ maxHeight: '98vh', overflowY: 'auto' }} lang="jsx" theme="light" />
+          <Corner right="2vw" bottom="2vh"><Link href="http://localhost:3001/redux-saga" target="_blank" style={{ fontSize: '4vh' }}>Example</Link></Corner>
         </FullScreenSlide>
 
         {/* End of episode 1 */}
@@ -622,12 +632,103 @@ export default class Presentation extends React.Component {
           </Corner>
         </FullScreenSlide>
 
+        <FullScreenSlide bgImage={images.colliderBlurred} padding="0 6vw">
+          <Heading style={{ fontSize: '8vh', margin: 0 }}>
+            UI integration
+          </Heading>
+          <Appear>
+            <Text textColor="secondary" style={{ fontSize: '3.8vh', marginTop: '2vh', textAlign: 'left' }}>
+              We saw how to create a Redux store, dispatch actions, and read the current state.
+            </Text>
+          </Appear>
+          <Appear>
+            <Text textColor="secondary" style={{ fontSize: '3.8vh', marginTop: '2vh', textAlign: 'left' }}>
+              We saw how to create a Redux store, dispatch actions, and read the current state.
+            </Text>
+          </Appear>
+          <Appear>
+            <Text textColor="secondary" style={{ fontSize: '3.8vh', marginTop: '2vh', textAlign: 'left' }}>
+              We also looked at how a store works inside, how middlewares let us customize the store with additional abilities.
+            </Text>
+          </Appear>
+          <Appear>
+            <Text textColor="secondary" style={{ fontSize: '3.8vh', marginTop: '2vh', textAlign: 'left' }}>
+              And how to add the Redux DevTools to let us see what's happening inside our app as actions are dispatched.
+            </Text>
+          </Appear>
+          <Appear>
+            <Text textColor="secondary" style={{ fontSize: '3.8vh', marginTop: '2vh', textAlign: 'left' }}>
+              Let's talk about Redux intergration with User Interface at last, shall we?
+            </Text>
+          </Appear>
+        </FullScreenSlide>
+
+        <FullScreenSlide bgImage={images.colliderBlurred} padding="0 6vw">
+          <Heading style={{ fontSize: '8vh', margin: 0 }}>
+            UI integration
+          </Heading>
+          <Text textColor="secondary" style={{ fontSize: '3.8vh', marginTop: '2vh', textAlign: 'left' }}>
+            Redux is a standalone JS library.
+          </Text>
+          <Appear><Text textColor="secondary" style={{ fontSize: '3.8vh', marginTop: '2vh', textAlign: 'left' }}>
+            You can create and use a Redux store even if you don't have any UI set up.
+          </Text></Appear>
+          <Appear><Text textColor="secondary" style={{ fontSize: '3.8vh', marginTop: '2vh', textAlign: 'left' }}>
+            This also means that you can use Redux with any UI framework, and use it on both client and server.
+          </Text></Appear>
+          <Appear><Text textColor="secondary" style={{ fontSize: '3.8vh', marginTop: '2vh', textAlign: 'left' }}>
+            You can write Redux apps with React, Vue, Angular, jQuery, or vanilla JavaScript.
+          </Text></Appear>
+        </FullScreenSlide>
+
+        <FullScreenSlide bgImage={images.colliderBlurred} padding="0 6vw">
+          <Heading style={{ fontSize: '8vh', margin: 0 }}>
+            UI integration
+          </Heading>
+          <Text textColor="secondary" style={{ fontSize: '3.8vh', marginTop: '2vh', textAlign: 'left' }}>
+            Using Redux with any UI layer requires a few consistent steps:
+            <List>
+              <ListItem>Create a Redux store</ListItem>
+              <ListItem>Subscribe to updates</ListItem>
+              <ListItem>Inside the subscription callback:
+                <List style={{ marginLeft: '4vw' }}>
+                  <ListItem>Get the current store state</ListItem>
+                  <ListItem>Extract the data needed by this piece of UI</ListItem>
+                  <ListItem>Update the UI with the data</ListItem>
+                </List>
+              </ListItem>
+              <ListItem>If necessary, render the UI with initial state</ListItem>
+              <ListItem>Respond to UI inputs by dispatching Redux actions</ListItem>
+            </List>
+          </Text>
+        </FullScreenSlide>
+
         <FullScreenSlide bgImage={images.colliderBlurred} padding="0 0.5vw">
           <Heading style={{ fontSize: '5vh', margin: '0 0 2vh', textAlign: 'left' }}>
             UI integration
           </Heading>
           <CodePane source={sources.uiIntegration} style={{ maxHeight: '98vh', overflowY: 'auto' }} lang="jsx" theme="light" />
           <Corner right="2vw" bottom="2vh"><Link href="https://codesandbox.io/s/redux-fundamentals-core-example-lr7k1" target="_blank" style={{ fontSize: '4vh' }}>Example</Link></Corner>
+        </FullScreenSlide>
+
+
+        <FullScreenSlide bgImage={images.colliderBlurred} padding="0 6vw">
+          <Heading style={{ fontSize: '8vh', margin: 0 }}>
+            Usage with React
+          </Heading>
+          <Text textColor="secondary" style={{ fontSize: '3.8vh', marginTop: '2vh', textAlign: 'left' }}>
+          Redux was specifically designed to work well with React.
+          </Text>
+          <Appear>
+            <Text textColor="secondary" style={{ fontSize: '3.8vh', marginTop: '2vh', textAlign: 'left' }}>
+              <Image src={images.uiFunctionOfState} />
+              React lets you describe your UI as a function of your state, and Redux contains state and updates it in response to actions.
+            </Text>
+          </Appear>
+        </FullScreenSlide>
+
+        <FullScreenSlide bgImage={images.colliderBlurred}>
+          <Image src={images.reactRedux} />
         </FullScreenSlide>
 
         <FullScreenSlide bgImage={images.colliderBlurred} padding="0 0.5vw">
@@ -649,10 +750,56 @@ export default class Presentation extends React.Component {
           <Corner right="2vw" bottom="2vh"><Link href="http://localhost:3001/react-redux-hooks" target="_blank" style={{ fontSize: '4vh' }}>Example</Link></Corner>
         </FullScreenSlide>
 
+        <FullScreenSlide bgImage={images.colliderBlurred} padding="0 4vw">
+          <Heading style={{ fontSize: '5vh', margin: '0 0 4vh', textAlign: 'left' }}>
+            Calculating  derived data: Selectors
+          </Heading>
+          <Appear>
+            <Text textColor="secondary" style={{ fontSize: '3.8vh', marginTop: '2vh', textAlign: 'left' }}>
+              Selector is a function that accepts the Redux store state (or part of the state) as an argument, and returns data that is based on that state.
+            </Text>
+          </Appear>
+          <Appear>
+            <Text textColor="secondary" style={{ fontSize: '3.8vh', marginTop: '6vh', textAlign: 'left' }}>
+              Selectors are functions used to:
+              <List>
+                <ListItem>Encapsulate state shape</ListItem>
+                <ListItem>Calculate derived values</ListItem>
+                <ListItem>Improve performance by avoiding unnecessary recalculations</ListItem>
+              </List>
+            </Text>
+          </Appear>
+        </FullScreenSlide>
 
         <FullScreenSlide bgImage={images.colliderBlurred} padding="0 0.5vw">
           <Heading style={{ fontSize: '5vh', margin: '0 0 2vh', textAlign: 'left' }}>
-            Computing derived data: Reselect
+            Calculating derived data: Selectors
+          </Heading>
+          <CodePane source={sources.selectors} style={{ maxHeight: '98vh', overflowY: 'auto' }} lang="jsx" theme="light" />
+        </FullScreenSlide>
+
+        <FullScreenSlide bgImage={images.colliderBlurred} padding="0 4vw">
+          <Heading style={{ fontSize: '5vh', margin: '0 0 4vh', textAlign: 'left' }}>
+            Keep State Minimal and Derive Additional Values
+          </Heading>
+          <Text textColor="secondary" style={{ fontSize: '3.8vh', marginTop: '2vh', textAlign: 'left' }}>
+          Whenever possible, keep the actual data in the Redux store as minimal as possible, and derive additional values from that state as needed.
+          </Text>
+          <Appear>
+            <Text textColor="secondary" style={{ fontSize: '3.8vh', marginTop: '6vh', textAlign: 'left' }}>
+              This has several benefits:
+              <List>
+                <ListItem>The actual state is easier to read</ListItem>
+                <ListItem>Less logic is needed to calculate those additional values and keep them in sync with the rest of the data</ListItem>
+                <ListItem>The original state is still there as a reference and isn't being replaced</ListItem>
+              </List>
+            </Text>
+          </Appear>
+        </FullScreenSlide>
+
+        <FullScreenSlide bgImage={images.colliderBlurred} padding="0 0.5vw">
+          <Heading style={{ fontSize: '5vh', margin: '0 0 2vh', textAlign: 'left' }}>
+            Memoized selectors: Reselect
           </Heading>
           <CodePane source={sources.reselect} style={{ maxHeight: '98vh', overflowY: 'auto' }} lang="jsx" theme="light" />
         </FullScreenSlide>
@@ -660,20 +807,65 @@ export default class Presentation extends React.Component {
           <CodePane source={sources.reselect2} style={{ maxHeight: '98vh', overflowY: 'auto' }} lang="jsx" theme="light" />
         </FullScreenSlide>
         <FullScreenSlide bgImage={images.colliderBlurred} padding="0 0.5vw">
+          <Heading style={{ fontSize: '5vh', margin: '0 0 2vh', textAlign: 'left' }}>
+            Reselect with React Redux connect
+          </Heading>
           <CodePane source={sources.reselect3} style={{ maxHeight: '98vh', overflowY: 'auto' }} lang="jsx" theme="light" />
+          <Corner right="2vw" bottom="2vh"><Link href="http://localhost:3001/reselect-connect" target="_blank" style={{ fontSize: '4vh' }}>Example</Link></Corner>
+        </FullScreenSlide>
+        <FullScreenSlide bgImage={images.colliderBlurred} padding="0 0.5vw">
+          <Heading style={{ fontSize: '5vh', margin: '0 0 2vh', textAlign: 'left' }}>
+            Reselect with React Redux API hooks
+          </Heading>
+          <CodePane source={sources.reselect4} style={{ maxHeight: '98vh', overflowY: 'auto' }} lang="jsx" theme="light" />
+          <Corner right="2vw" bottom="2vh"><Link href="http://localhost:3001/reselect-hooks" target="_blank" style={{ fontSize: '4vh' }}>Example</Link></Corner>
         </FullScreenSlide>
 
+        <FullScreenSlide bgImage={images.colliderBlurred} padding="0 2vw">
+          <Heading style={{ fontSize: '5vh', margin: '0 0 4vh', textAlign: 'left' }}>
+            Global State, Component State, and Forms
+          </Heading>
+          <Text textColor="secondary" style={{ fontSize: '3.8vh', marginTop: '2vh', textAlign: 'left' }}>
+            Your <span style={{ ...styles.brain }}>global</span> state should go in the <span style={{ ...styles.brain }}>Redux</span> store,<br />and your <span style={{ ...styles.brain }}>local</span> state should stay in <span style={{ ...styles.brain }}>React</span> components.
+          </Text>
+          <Appear>
+            <Text textColor="secondary" style={{ fontSize: '3.8vh', marginTop: '6vh', textAlign: 'left' }}>
+              Ask yourself:
+              <List>
+                <ListItem>Do other parts of the application care about this data?</ListItem>
+                <ListItem>Do you need to be able to derive data based on it?</ListItem>
+                <ListItem>Is the same data being used to drive multiple components?</ListItem>
+                <ListItem>Is there value in being able to restore this state to a given point in time?</ListItem>
+                <ListItem>Do you want to cache the data?</ListItem>
+                <ListItem>Do you want to keep this data consistent while hot-reloading?</ListItem>
+              </List>
+            </Text>
+          </Appear>
+          <Appear>
+            <Text textColor="secondary" style={{ fontSize: '3.8vh', marginTop: '6vh', textAlign: 'left' }}>
+            Same applies to <span style={{ ...styles.brain }}>forms</span>. Most form state shouldn't be kept in Redux. Instead, keep the data in your form components as you're editing it, and then dispatch Redux actions to update the store when the user is done.
+            </Text>
+          </Appear>
+        </FullScreenSlide>
 
         {/* Router/Redux Integration, blocked updates; Deep Integration, connected-react-router */}
-        {/* <FullScreenSlide bgImage={images.routesBlurred} padding="0 0.5vw 1vh 0.5vw">
-          <Heading caps style={{ ...styles.brain, lineHeight: '10vh', fontSize: '8vh', margin: 0 }}>Redux Integration</Heading>
-          <Text textColor="secondary" textSize="4.5vh" textAlign="left">
+        <FullScreenSlide bgImage={images.colliderBlurred} padding="0 2vw 1vh">
+          <Heading style={{ lineHeight: '8vh', fontSize: '5vh', margin: 0 }}>Integration with React Router</Heading>
+          <Text textColor="secondary" textSize="3.8vh" textAlign="left">
             <span style={{ ...styles.brain }}>Blocked Updates</span> issue happens when a <span style={{ ...styles.brain }}>connected</span> component is not a <span style={{ ...styles.brain }}>route</span> component.
             Redux implements shouldComponentUpdate and there are no props from the Router.
             The fix is withRouter:
           </Text>
           <CodePane source={sources.blockedUpdates} style={{ maxHeight: '75vh', overflowY: 'auto' }} lang="jsx" theme="light" />
-          <Text textColor="secondary" style={{ fontSize: '4.5vh', marginTop: '2vh', textAlign: 'left' }}>
+          <Text textColor="secondary" textSize="3.8vh" textAlign="left" style={{ marginTop: '4vh' }}>
+            HOC composition alternative:
+          </Text>
+          <CodePane source={sources.hocComposition} style={{ maxHeight: '75vh', overflowY: 'auto' }} lang="jsx" theme="light" />
+          <Corner right="0.5vw" bottom="0.5vh"><Link href="https://reactjs.org/docs/higher-order-components.html#convention-maximizing-composability" target="_blank" style={{ fontSize: '4vh' }}>Maximizing Composability</Link></Corner>
+        </FullScreenSlide>
+        <FullScreenSlide bgImage={images.colliderBlurred} padding="0 2vw 1vh">
+          <Heading style={{ lineHeight: '8vh', fontSize: '5vh', margin: 0 }}>Integration with React Router</Heading>
+          <Text textColor="secondary" style={{ fontSize: '3.8vh', marginTop: '2vh', textAlign: 'left' }}>
             <span style={{ ...styles.brain }}>Deep Integration</span> is required to:
             <ul style={{ margin: 0 }}>
               <li>Synchronize routing data with the store, access from the store</li>
@@ -681,7 +873,7 @@ export default class Presentation extends React.Component {
               <li>Have support for time travel debugging for route changes</li>
             </ul>
           </Text>
-          <Text textColor="secondary" style={{ fontSize: '4.5vh', marginTop: '2vh', textAlign: 'left' }}>
+          <Text textColor="secondary" style={{ fontSize: '3.8vh', marginTop: '2vh', textAlign: 'left' }}>
             React Router team does not recomment Deep Integration:
             <ul style={{ margin: 0 }}>
               <li>Routing data is already a prop of route components</li>
@@ -689,14 +881,14 @@ export default class Presentation extends React.Component {
               <li>Route changes are unlikely to matter for time travel debugging</li>
             </ul>
           </Text>
-          <Corner right="0.5vw" bottom="0.5vh"><Link href="https://reacttraining.com/react-router/web/guides/redux-integration" target="_blank" style={{ fontSize: '4vh' }}>Redux Integration</Link></Corner>
+          <Corner right="0.5vw" bottom="0.5vh"><Link href="https://reactrouter.com/web/guides/deep-redux-integration" target="_blank" style={{ fontSize: '4vh' }}>Deep Integration</Link></Corner>
         </FullScreenSlide>
-        <FullScreenSlide bgImage={images.routesBlurred} padding="0 0.5vw 1vh 0.5vw">
-          <Heading style={{ ...styles.brain, lineHeight: '10vh', fontSize: '8vh', margin: 0 }}>Connected React Router</Heading>
-          <Text textColor="secondary" textSize="4.5vh" textAlign="left">
+        <FullScreenSlide bgImage={images.colliderBlurred} padding="0 0.5vw 1vh 0.5vw">
+          <Heading style={{ lineHeight: '8vh', fontSize: '5vh', margin: 0 }}>Connected React Router</Heading>
+          <Text textColor="secondary" textSize="3.8vh" textAlign="left">
             Synchronizes Router state with Redux store through uni-directional flow:
           </Text>
-          <Text textColor="secondary" textSize="4.5vh" textAlign="left">
+          <Text textColor="secondary" textSize="3.8vh" textAlign="left">
             history → store → router → components
           </Text>
           <div style={{ minWidth: '48.75vw', maxWidth: '48.75vw', margin: '0 0.25vw 0 0', display: 'inline-block', verticalAlign: 'top' }}>
@@ -717,7 +909,7 @@ export default class Presentation extends React.Component {
           </div>
           <Corner right="0.5vw" bottom="0.5vh"><Link href="https://github.com/supasate/connected-react-router" target="_blank" style={{ fontSize: '4vh' }}>connected-react-router</Link></Corner>
         </FullScreenSlide>
-        <FullScreenSlide bgImage={images.routesBlurred} padding="0 0.5vw">
+        <FullScreenSlide bgImage={images.colliderBlurred} padding="0 0.5vw">
           <CodePane
             lang="jsx"
             source={sources.connectedReactRouter}
@@ -725,7 +917,32 @@ export default class Presentation extends React.Component {
             style={{ maxHeight: '96vh', overflowY: 'auto' }}
           />
           <Corner right="2vw" bottom="2vh"><Link href="https://codesandbox.io/s/connected-react-router-yllkz" target="_blank" style={{ fontSize: '4vh' }}>Example</Link></Corner>
-        </FullScreenSlide> */}
+        </FullScreenSlide>
+
+        <FullScreenSlide bgImage={images.colliderBlurred}>
+          <Image src={images.reduxToolkit} />
+        </FullScreenSlide>
+        <FullScreenSlide bgImage={images.colliderBlurred} padding="0 0.5vw">
+          <Heading style={{ fontSize: '4vh', margin: '0 0 0.5vh', textAlign: 'left' }}>
+            Redux Toolkit
+          </Heading>
+          <CodePane source={sources.reduxToolkit} style={{ maxHeight: '96vh', overflowY: 'auto' }} lang="jsx" theme="light" />
+          <Corner right="2vw" bottom="2vh"><Link href="http://localhost:3001/redux-toolkit" target="_blank" style={{ fontSize: '4vh' }}>Example</Link></Corner>
+        </FullScreenSlide>
+        <FullScreenSlide bgImage={images.colliderBlurred} padding="0 0.5vw">
+          <Heading style={{ fontSize: '4vh', margin: '0 0 0.5vh', textAlign: 'left' }}>
+            Redux Toolkit: createAsyncThunk
+          </Heading>
+          <CodePane source={sources.createAsyncThunk} style={{ maxHeight: '96vh', overflowY: 'auto' }} lang="jsx" theme="light" />
+          <Corner right="2vw" bottom="2vh"><Link href="http://localhost:3001/create-async-thunk" target="_blank" style={{ fontSize: '4vh' }}>Example</Link></Corner>
+        </FullScreenSlide>
+        <FullScreenSlide bgImage={images.colliderBlurred} padding="0 0.5vw">
+          <Heading style={{ fontSize: '4vh', margin: '0 0 0.5vh', textAlign: 'left' }}>
+            Redux Toolkit Query
+          </Heading>
+          <CodePane source={sources.reduxToolkitQuery} style={{ maxHeight: '96vh', overflowY: 'auto' }} lang="jsx" theme="light" />
+          <Corner right="2vw" bottom="2vh"><Link href="http://localhost:3001/redux-toolkit-query" target="_blank" style={{ fontSize: '4vh' }}>Example</Link></Corner>
+        </FullScreenSlide>
 
         {/* End of episode 1 */}
         {/* <FullScreenSlide bgImage={images.chernobyl}>

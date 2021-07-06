@@ -9,7 +9,7 @@ export const getVisibleTodos = createSelector(                         // memoiz
   // ...
 );
 
-const getVisibleTodosFilteredByKeyword = createSelector(  // composing selectors
+export const getVisibleTodosFilteredByKeyword = createSelector(  // composing selectors
   [getVisibleTodos, getKeyword],           // memoized selector is itself an input-selector
   (visibleTodos, keyword) =>
     visibleTodos.filter(todo => todo.text.indexOf(keyword) > -1)
